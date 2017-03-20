@@ -18,8 +18,8 @@ namespace EkoSystem
             zwierzeA.NadajImie("Królowa");
             ekoSystem.DodajZwierze(zwierzeA);
 
-            var zwierzeB = new Mrowka(Plec.Mezczyzna);
-            zwierzeB.NadajImie("Robotnik");
+            var zwierzeB = new Mrowka(Plec.Kobieta);
+            zwierzeB.NadajImie("Robotnica");
             ekoSystem.DodajZwierze(zwierzeB);
 
             // Ekosystem będzie żył;
