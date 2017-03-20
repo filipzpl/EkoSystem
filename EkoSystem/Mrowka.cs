@@ -24,11 +24,34 @@ namespace EkoSystem
             _pozycjaHierarchiMrowek = HierarchiaMrowek.Krolowa;
             
         }
+
+        public bool CzyJestKrolowa()
+        {
+            return _pozycjaHierarchiMrowek.Equals(HierarchiaMrowek.Krolowa);
+        }
+
+        public bool AwansujNaWojownika(Mrowka mrowka)
+        {
+            if (mrowka.CzyJestKrolowa())
+            {
+                _pozycjaHierarchiMrowek = HierarchiaMrowek.Wojownik;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public override string ToString()
         {
             if(_pozycjaHierarchiMrowek.Equals(HierarchiaMrowek.Krolowa))
             {
                 return _gatunek.ToString() + " (* " + _imie + ", " + _plec + ")";
+            }
+            else if (_pozycjaHierarchiMrowek.Equals(HierarchiaMrowek.Wojownik))
+            {
+                return _gatunek.ToString() + " (# " + _imie + ", " + _plec + ")";
             }
             else
             {
