@@ -23,7 +23,7 @@
 
         public override string ToString()
         {
-            return _gatunek.ToString() + " (" + _imie + ", " + _plec + ")";
+            return _gatunek.ToString() + " " + _imie + " ( " + _plec + ")";
         }
     }
 }

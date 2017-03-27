@@ -47,11 +47,11 @@ namespace EkoSystem
         {
             if (_pozycjaHierarchiMrowek.Equals(HierarchiaMrowek.Krolowa))
             {
-                return _gatunek.ToString() + " (* " + _imie + ", " + _plec + ")";
+                return _gatunek.ToString() + " " + _imie + " ( * " + _plec + ")";
             }
             else if (_pozycjaHierarchiMrowek.Equals(HierarchiaMrowek.Wojownik))
             {
-                return _gatunek.ToString() + " (# " + _imie + ", " + _plec + ")";
+                return _gatunek.ToString() + " " + _imie + " ( # " + _plec + ")";
             }
             else
             {
