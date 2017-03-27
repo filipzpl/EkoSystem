@@ -10,9 +10,13 @@ namespace EkoSystem
     {
         private HierarchiaMrowek _pozycjaHierarchiMrowek;
 
+        public static ulong IloscStworzonychMrowek = 0;
+
         //Metoda do konstruowania Mrowek
         public Mrowka(Plec plec) : base(Gatunek.Mrowka, plec)
         {
+            IloscStworzonychMrowek++;
+
             _pozycjaHierarchiMrowek = HierarchiaMrowek.Robotnica;
         }
 
@@ -22,7 +26,6 @@ namespace EkoSystem
         public Mrowka() : this(Plec.Kobieta)
         {
             _pozycjaHierarchiMrowek = HierarchiaMrowek.Krolowa;
-            
         }
 
         public bool CzyJestKrolowa()

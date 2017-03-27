@@ -36,14 +36,32 @@ namespace EkoSystem
             _zwierzeta.Add(zwierze);
         }
 
+        public void DodajSurowiec(SurowiecNaturalny surowiec)
+        {
+            _surowceNaturalne.Add(surowiec);
+        }
+
         public override string ToString()
         {
             var opisEkosystemu = "";
+
+            opisEkosystemu += "Lista zwierzat w ekosystemie" + Environment.NewLine;
             foreach (var zwierz in _zwierzeta)
             {
                 opisEkosystemu += zwierz.ToString() + Environment.NewLine;
             }
+
+            opisEkosystemu += Environment.NewLine;
+            opisEkosystemu += Environment.NewLine;
+
+            opisEkosystemu += "Lista surowców naturalnych w ekosystemie" + Environment.NewLine;
+            foreach (var surowiec in _surowceNaturalne)
+            {
+                opisEkosystemu += surowiec.ToString() + Environment.NewLine;
+            }
+
             return opisEkosystemu;
         }
+
     }
 }
