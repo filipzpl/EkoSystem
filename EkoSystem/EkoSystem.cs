@@ -27,6 +27,7 @@ namespace EkoSystem
             _zwierzeta = new List<Zwierze>();
         }
 
+        #region DodajZwierze
         /// <summary>
         /// Dodaje Zwierzę do Ekosystemu
         /// </summary>
@@ -35,14 +36,36 @@ namespace EkoSystem
         {
             _zwierzeta.Add(zwierze);
         }
+        #endregion
+
+        public void DodajSurowiec(SurowiecNaturalny surowiec)
+        {
+            _surowceNaturalne.Add(surowiec);
+        }
+
+
+
+
+
 
         public override string ToString()
         {
             var opisEkosystemu = "";
+            opisEkosystemu += "Lista Zwierząt w Ekosystemie" + Environment.NewLine;
             foreach (var zwierz in _zwierzeta)
             {
                 opisEkosystemu += zwierz.ToString() + Environment.NewLine;
             }
+
+            opisEkosystemu += Environment.NewLine;
+            opisEkosystemu += Environment.NewLine;
+
+            opisEkosystemu += "Lista Surowców Naturalnych w Ekosystemie" + Environment.NewLine;
+            foreach (var surowiec in _surowceNaturalne)
+            {
+                opisEkosystemu += surowiec.ToString() + Environment.NewLine;
+            }
+
             return opisEkosystemu;
         }
     }

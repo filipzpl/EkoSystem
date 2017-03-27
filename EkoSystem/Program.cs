@@ -14,6 +14,7 @@ namespace EkoSystem
             var ekoSystem = new EkoSystem();
 
             // Dodac Elementy Do Ekosystemu;
+            #region Mrówki
             var zwierzeA = new Mrowka();
             zwierzeA.NadajImie("A");
             ekoSystem.DodajZwierze(zwierzeA);
@@ -25,12 +26,22 @@ namespace EkoSystem
             var zwierzeC = new Mrowka(Plec.Mezczyzna);
             zwierzeC.NadajImie("C");
             ekoSystem.DodajZwierze(zwierzeC);
+            #endregion
+
+            #region SurowceNaturalne
+            var powietrze = new SurowiecNaturalny("Powietrze", 3000);
+            var soleMineralne = new SurowiecNaturalny("SoleMineralne", 10000);
+            ekoSystem.DodajSurowiec(powietrze);
+            ekoSystem.DodajSurowiec(soleMineralne);
+
+            #endregion
 
             // Ekosystem będzie żył;
             var czySieUdalo = zwierzeC.AwansujNaWojownika(zwierzeA);
 
             // Ekosystem zostanie zniszczony;
 
+            Console.WriteLine("Ilość Mrówek: {0} ", Mrowka.IloscStworzonychMrowek);
             Console.WriteLine(ekoSystem);
             Console.ReadKey();
         }
