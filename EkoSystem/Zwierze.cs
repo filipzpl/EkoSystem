@@ -1,6 +1,8 @@
-﻿namespace EkoSystem
+﻿using System;
+
+namespace EkoSystem
 {
-    class Zwierze
+    abstract class Zwierze
     {
         protected Gatunek _gatunek;
         protected string _imie;
@@ -10,10 +12,42 @@
         {
             _gatunek = gatunek;
             _plec = plec;
+            _czyZyje = true;
+        }
+        ~Zwierze()
+        {
+            Usmierc();
+        }
+
+        private bool _czyZyje;
+        public bool CzyZyje
+        {
+            get { return _czyZyje; }
         }
 
         /// <summary>
-        /// 
+        /// Metoda: Ture > Śmierć : False > Żyje
+        /// Metoda do Destrukcji (Destructor) Mrówek
+        /// </summary>
+        public bool Usmierc()
+        {
+            if (_czyZyje)
+            {
+                umieraj();
+                Console.WriteLine("Zwierze Typu {0} Umarło!", this.GetType());
+                return true;
+            }
+            //Nie można zabić martwej mrówki
+            return false;
+        }
+
+        protected virtual void umieraj()
+        {
+            //Nic sie nie wykona
+        }
+
+        /// <summary>
+        /// Nadaje Imie
         /// </summary>
         /// <param name="imie"></param>
         public void NadajImie(string imie)

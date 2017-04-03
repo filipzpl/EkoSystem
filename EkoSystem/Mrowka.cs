@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EkoSystem.Interface;
 
 namespace EkoSystem
 {
-    class Mrowka : Zwierze
+    class Mrowka : Zwierze, IIstotaZywa
     {
         private HierarchiaMrowek _pozycjaHierarchiMrowek;
 
@@ -27,6 +28,18 @@ namespace EkoSystem
             _pozycjaHierarchiMrowek = HierarchiaMrowek.Krolowa;
             
         }
+
+        protected override void umieraj()
+        {
+            IloscStworzonychMrowek--;
+            base.umieraj();
+        }
+
+        ~Mrowka()
+        {
+            Usmierc();
+        }
+        
 
         public bool CzyJestKrolowa()
         {
@@ -58,7 +71,9 @@ namespace EkoSystem
             }
             else
             {
-                return base.ToString();
+                return base.ToString(); 
+
+
             }
         }
     }
