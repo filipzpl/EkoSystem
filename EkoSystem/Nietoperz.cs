@@ -14,9 +14,5 @@ namespace EkoSystem
             
         }
 
-        ~Nietoperz()
-        {
-            Usmierc();
-        }
     }
 }

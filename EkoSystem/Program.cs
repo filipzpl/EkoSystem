@@ -13,13 +13,14 @@ namespace EkoSystem
             // Stworzymy Nowy Ekosystem;
             var ekoSystem = new EkoSystem();
 
+
             // Dodac Elementy Do Ekosystemu;
             #region Mrówki
             var zwierzeA = new Mrowka();
             zwierzeA.NadajImie("A");
             ekoSystem.DodajZwierze(zwierzeA);
 
-            var zwierzeB = new Mrowka(Plec.Mezczyzna);
+            var zwierzeB = new Mrowka(Plec.Kobieta);
             zwierzeB.NadajImie("B");
             ekoSystem.DodajZwierze(zwierzeB);
 
@@ -38,6 +39,7 @@ namespace EkoSystem
             // Ekosystem będzie żył;
             var czySieUdalo = zwierzeC.AwansujNaWojownika(zwierzeA);
 
+            
             // Ekosystem zostanie zniszczony;
             zwierzeB.Usmierc();
 

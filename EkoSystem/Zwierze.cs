@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 
 namespace EkoSystem
 {
@@ -7,6 +8,17 @@ namespace EkoSystem
         protected Gatunek _gatunek;
         protected string _imie;
         protected Plec _plec;
+
+        private bool _czyZyje;
+
+        public bool CzyZyje
+        {
+            get
+            {
+                return _czyZyje;
+            }
+        }
+
 
         public Zwierze(Gatunek gatunek, Plec plec)
         {
@@ -17,12 +29,6 @@ namespace EkoSystem
         ~Zwierze()
         {
             Usmierc();
-        }
-
-        private bool _czyZyje;
-        public bool CzyZyje
-        {
-            get { return _czyZyje; }
         }
 
         /// <summary>
@@ -43,7 +49,7 @@ namespace EkoSystem
 
         protected virtual void umieraj()
         {
-            //Nic sie nie wykona
+            _czyZyje = false;
         }
 
         /// <summary>
