@@ -45,7 +45,9 @@
     <Compile Include="EkoSystem.cs" />
     <Compile Include="Gatunek.cs" />
     <Compile Include="HierarchiaMrowek.cs" />
+    <Compile Include="Interfejsy\IIstotaZywa.cs" />
     <Compile Include="Mrowka.cs" />
+    <Compile Include="Nietoperz.cs" />
     <Compile Include="Plec.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

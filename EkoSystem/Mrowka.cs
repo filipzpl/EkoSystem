@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Channels;
 using System.Text;
 using System.Threading.Tasks;
+using EkoSystem.Interfejsy;
 
 namespace EkoSystem
 {
-    class Mrowka : Zwierze
+    class Mrowka : Zwierze, IIstotaZywa
     {
         private HierarchiaMrowek _pozycjaHierarchiMrowek;
 
@@ -28,6 +30,18 @@ namespace EkoSystem
             _pozycjaHierarchiMrowek = HierarchiaMrowek.Krolowa;
         }
 
+        protected override void umieraj()
+        {
+            IloscStworzonychMrowek--;
+            base.umieraj();
+        }
+
+        /// <summary>
+        /// Sprawdzenie czy mrówka jest krówlową
+        /// </summary>
+        /// <returns>
+        /// Zwraca True jeżli jest krówlową, False w przeciwnym wypadku
+        /// </returns>
         public bool CzyJestKrolowa()
         {
             return _pozycjaHierarchiMrowek.Equals(HierarchiaMrowek.Krolowa);
@@ -50,15 +64,15 @@ namespace EkoSystem
         {
             if(_pozycjaHierarchiMrowek.Equals(HierarchiaMrowek.Krolowa))
             {
-                return _gatunek.ToString() + " " + _imie + " ( * " + _plec + ")";
+                return _gatunek.ToString() + " " + _imie + " ( * " + _plec + (CzyZyje ? "" : " [*] ")+")"; 
             }
             else if (_pozycjaHierarchiMrowek.Equals(HierarchiaMrowek.Wojownik))
             {
-                return _gatunek.ToString() + " " + _imie + " ( # " + _plec + ")";
+                return _gatunek.ToString() + " " + _imie + " ( # " + _plec + (CzyZyje ? "" : " [*] ") + ")";
             }
             else
             {
-                return base.ToString();
+                return _gatunek.ToString() + " " + _imie + " ( Z " + _plec + (CzyZyje ? "" : " [*] ") + ")";
             }
         }
     }

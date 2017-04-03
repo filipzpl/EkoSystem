@@ -40,6 +40,8 @@ namespace EkoSystem
 
             
             // Ekosystem zostanie zniszczony;
+            zwierzeB.Usmierc();
+
 
             Console.WriteLine("Ilosc mrowek: {0}", Mrowka.IloscStworzonychMrowek);
 
