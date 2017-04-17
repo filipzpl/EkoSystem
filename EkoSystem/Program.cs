@@ -36,6 +36,11 @@ namespace EkoSystem
 
             #endregion
 
+            var wiewiorkaA = new Wiewiorka(Plec.Kobieta);
+            wiewiorkaA.NadajImie("Gejminn");
+            ekoSystem.DodajZwierze(wiewiorkaA);
+
+
             // Ekosystem będzie żył;
             var czySieUdalo = zwierzeC.AwansujNaWojownika(zwierzeA);
 

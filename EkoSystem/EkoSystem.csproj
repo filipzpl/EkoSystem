@@ -52,6 +52,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SurowiecNaturalny.cs" />
+    <Compile Include="Wiewiorka.cs" />
     <Compile Include="Zwierze.cs" />
   </ItemGroup>
   <ItemGroup>
