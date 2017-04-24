@@ -28,6 +28,14 @@ namespace EkoSystem
             zwierzeC.NadajImie("C");
             ekoSystem.DodajZwierze(zwierzeC);
 
+            for (int licznik = 0; licznik < 10; licznik++)
+            {
+                var plec = Helper.WylosujPlec() ? Plec.Mezczyzna : Plec.Kobieta;
+                var mrowkaX = new Mrowka(plec);
+                mrowkaX.NadajImie(Helper.WylosujImie(plec));
+                ekoSystem.DodajZwierze(mrowkaX);
+            }
+
             #endregion
 
             var powietrze = new SurowiecNaturalny("Powietrze", 3000);
