@@ -44,7 +44,9 @@
   <ItemGroup>
     <Compile Include="EkoSystem.cs" />
     <Compile Include="Gatunek.cs" />
+    <Compile Include="Helper.cs" />
     <Compile Include="HierarchiaMrowek.cs" />
+    <Compile Include="Imiona.cs" />
     <Compile Include="Interface\IIstotaZywa.cs" />
     <Compile Include="Mrowka.cs" />
     <Compile Include="Nietoperz.cs" />

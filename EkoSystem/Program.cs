@@ -27,6 +27,14 @@ namespace EkoSystem
             var zwierzeC = new Mrowka(Plec.Mezczyzna);
             zwierzeC.NadajImie("C");
             ekoSystem.DodajZwierze(zwierzeC);
+
+            for(int licznik = 0; licznik<10; licznik++)
+            {
+                var plec = Helper.WylosujPlec() ? Plec.Mezczyzna : Plec.Kobieta;
+                var mrowkaX = new Mrowka(plec);
+                mrowkaX.NadajImie(Helper.WylosujImie(plec));
+                ekoSystem.DodajZwierze(mrowkaX);
+            }
             #endregion
             #region SurowceNaturalne
             var powietrze = new SurowiecNaturalny("Powietrze", 3000);
@@ -43,6 +51,8 @@ namespace EkoSystem
 
             // Ekosystem będzie żył;
             var czySieUdalo = zwierzeC.AwansujNaWojownika(zwierzeA);
+
+
 
             
             // Ekosystem zostanie zniszczony;

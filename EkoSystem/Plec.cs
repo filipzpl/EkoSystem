@@ -1,6 +1,6 @@
 ﻿namespace EkoSystem
 {
-    enum Plec
+    public enum Plec
     {
         Kobieta,
         Mezczyzna,
