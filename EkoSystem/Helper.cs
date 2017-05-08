@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace EkoSystem
@@ -81,5 +82,61 @@ namespace EkoSystem
 
 
         }
+
+        public static void PetlaNieskonczona()
+        {
+            byte liczba = 0;
+
+            while (true)
+            {
+                checked
+                {
+                    liczba++;
+                }
+                Console.WriteLine("{0}", liczba);
+            }
+        }
+
+        public static void PetlaNaWatku()
+        {
+            try
+            {
+                Helper.PetlaNieskonczona();
+            }
+            catch (OverflowException e)
+            {
+                Console.WriteLine("OvFl Ex");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Inny Ex");
+            }
+
+        }
+
+        public static void PetlaLiczb()
+        {
+            ulong liczba = 0;
+
+            while (true)
+            {
+                liczba++;
+                Console.WriteLine("{0}", liczba);
+                Thread.Sleep(_randomGenerator.Next(100, 500));
+            }
+        }
+
+        public static void PetlaImion()
+        {
+            while (true)
+            {
+                Console.WriteLine("{0}", WylosujImie(Plec.Kobieta));
+                Console.WriteLine("{0}", WylosujImie(Plec.Mezczyzna));
+                Thread.Sleep(_randomGenerator.Next(100, 500));
+            }
+        }
+
+
+
     }
 }
