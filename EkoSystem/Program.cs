@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace EkoSystem
@@ -10,6 +11,17 @@ namespace EkoSystem
     {
         static void Main(string[] args)
         {
+
+            var watekPoboczny1 = new Thread(Helper.PetlaLiczb);
+            var watekPoboczny2 = new Thread(Helper.PetlaImion);
+
+            watekPoboczny2.IsBackground = true;
+            watekPoboczny1.IsBackground = true;
+
+            watekPoboczny1.Start();
+            watekPoboczny2.Start();
+
+
             // Stworzymy Nowy Ekosystem;
             var ekoSystem = new EkoSystem();
 
