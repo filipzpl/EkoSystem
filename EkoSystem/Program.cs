@@ -11,16 +11,20 @@ namespace EkoSystem
     {
         static void Main(string[] args)
         {
+            #region Wątek
+            //var watekPoboczny1 = new Thread(Helper.PetlaLiczb);
+            //var watekPoboczny2 = new Thread(Helper.PetlaImion);
 
-            var watekPoboczny1 = new Thread(Helper.PetlaLiczb);
-            var watekPoboczny2 = new Thread(Helper.PetlaImion);
+            //watekPoboczny2.IsBackground = true;
+            //watekPoboczny1.IsBackground = true;
 
-            watekPoboczny2.IsBackground = true;
-            watekPoboczny1.IsBackground = true;
+            //watekPoboczny1.Start();
+            //watekPoboczny2.Start();
+            #endregion
 
-            watekPoboczny1.Start();
-            watekPoboczny2.Start();
-
+            var czasTikTak1 = new Thread(Helper.Zegar);
+            czasTikTak1.IsBackground = true;
+            czasTikTak1.Start();
 
             // Stworzymy Nowy Ekosystem;
             var ekoSystem = new EkoSystem();
