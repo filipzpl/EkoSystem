@@ -28,6 +28,20 @@ namespace EkoSystem
         public Mrowka() : this(Plec.Kobieta)
         {
             _pozycjaHierarchiMrowek = HierarchiaMrowek.Krolowa;
+
+            Helper.UplynalCzas += PowijMrowke;
+        }
+
+        private void PowijMrowke(int ileJednostek)
+        {
+            var losujPorod = Helper.LosujLiczbe(0, 3);
+            var losujPlec = Helper.LosujLiczbe(0, 2);
+            if (losujPorod == 1)
+            {
+                var plec = losujPlec == 0 ? Plec.Kobieta : Plec.Mezczyzna;
+                var nowaMrowka = new Mrowka(plec);
+                nowaMrowka.NadajImie(Helper.WylosujImie(plec));
+            }
         }
 
         protected override void umieraj()
@@ -64,16 +78,26 @@ namespace EkoSystem
         {
             if(_pozycjaHierarchiMrowek.Equals(HierarchiaMrowek.Krolowa))
             {
-                return _gatunek.ToString() + " " + _imie + " ( * " + _plec + (CzyZyje ? "" : " [*] ")+")"; 
+                return krotkiOpis() + " ( * " + _plec + (CzyZyje ? "" : " [*] ") + ")"; 
             }
             else if (_pozycjaHierarchiMrowek.Equals(HierarchiaMrowek.Wojownik))
             {
-                return _gatunek.ToString() + " " + _imie + " ( # " + _plec + (CzyZyje ? "" : " [*] ") + ")";
+                return krotkiOpis() + " ( # " + _plec + (CzyZyje ? "" : " [*] ") + ")";
             }
             else
             {
-                return _gatunek.ToString() + " " + _imie + " ( Z " + _plec + (CzyZyje ? "" : " [*] ") + ")";
+                return krotkiOpis() + " ( Z " + _plec + (CzyZyje ? "" : " [*] ") + ")";
             }
+        }
+
+        protected override string opisZwierzecia()
+        {
+            return krotkiOpis();
+        }
+
+        private string krotkiOpis()
+        {
+            return _gatunek.ToString() + " " + _imie;
         }
     }
 }

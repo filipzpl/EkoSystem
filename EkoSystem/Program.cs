@@ -11,15 +11,23 @@ namespace EkoSystem
     {
         static void Main(string[] args)
         {
+            //probley do rozwiazania
+            // martwa krolowa dlaej rodzi mrowki
+            // nowe mrowki trzeba dodac do ekosystemu
 
-            var watekPoboczny1 = new Thread(Helper.PetlaLiczb);
+
+            /*var watekPoboczny1 = new Thread(Helper.PetlaLiczb);
             var watekPoboczny2 = new Thread(Helper.PetlaImion);
 
             watekPoboczny2.IsBackground = true;
             watekPoboczny1.IsBackground = true;
 
             watekPoboczny1.Start();
-            watekPoboczny2.Start();
+            watekPoboczny2.Start();*/
+            
+            var watekZegara = new Thread(Helper.Zegar);
+            watekZegara.IsBackground = true;
+            watekZegara.Start();
 
 
             // Stworzymy Nowy Ekosystem;
@@ -67,6 +75,7 @@ namespace EkoSystem
 
             Console.WriteLine(ekoSystem);
             Console.ReadKey();
+
         }
     }
 }

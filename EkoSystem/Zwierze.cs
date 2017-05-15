@@ -9,6 +9,8 @@ namespace EkoSystem
         protected string _imie;
         protected Plec _plec;
 
+        protected int _pozostalyCzasZycia;
+
         private bool _czyZyje;
 
         public bool CzyZyje
@@ -26,6 +28,19 @@ namespace EkoSystem
             _plec = plec;
 
             _czyZyje = true;
+            _pozostalyCzasZycia = 10 + Helper.LosujLiczbe(-3, 3);
+
+            Helper.UplynalCzas += GdyUplynalCzas;
+        }
+
+        private void GdyUplynalCzas(int ileJednostek)
+        {
+            _pozostalyCzasZycia -= ileJednostek;
+
+            if (_pozostalyCzasZycia <= 0)
+            {
+                Usmierc();
+            }
         }
 
         ~Zwierze()
@@ -53,13 +68,18 @@ namespace EkoSystem
             {
                 umieraj();
 
-                Console.WriteLine("Zwierze typu {0} umarło!", GetType());
+                Console.WriteLine("Zwierze {0} umarło!", opisZwierzecia());
 
                 return true;
             }
 
             //niemozna zabic martwej mrowki
             return false;
+        }
+
+        protected virtual string opisZwierzecia()
+        {
+            return GetType().ToString();
         }
 
         protected virtual void umieraj()

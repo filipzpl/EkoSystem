@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -12,6 +13,12 @@ namespace EkoSystem
     public static class Helper
     {
         private static Random _randomGenerator = new Random((int)DateTime.Now.Ticks & 0x0000FFFF);
+
+
+        public static int LosujLiczbe(int min, int max)
+        {
+            return _randomGenerator.Next(min, max);
+        }
 
         public static string GetEnumDescription(Enum value)
         {
@@ -126,6 +133,23 @@ namespace EkoSystem
         }
 
 
+        public static void Zegar()
+        {
+            var jednostkaCzasu = 1000; //ms
+
+            while (true)
+            {
+                if (UplynalCzas != null)
+                {
+                    UplynalCzas(1);
+                }
+                Thread.Sleep(jednostkaCzasu);
+            }
+        }
+
+        public delegate void UplynalCzasEvent(int ileJednostek);
+
+        public static event UplynalCzasEvent UplynalCzas;
 
     }
 }
