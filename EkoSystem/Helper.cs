@@ -107,11 +107,11 @@ namespace EkoSystem
             {
                 Helper.PetlaNieskonczona();
             }
-            catch (OverflowException e)
+            catch (OverflowException)
             {
                 Console.WriteLine("OvFl Ex");
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Console.WriteLine("Inny Ex");
             }

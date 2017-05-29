@@ -28,19 +28,30 @@ namespace EkoSystem
         {
             _pozycjaHierarchiMrowek = HierarchiaMrowek.Krolowa;
 
-            Helper.UplynalCzas += PowijMrowke;
+            Helper.UplynalCzas += PowijPotomstwo;
         }
 
-        private void PowijMrowke(int ileJednostek)
+        protected override void PowijPotomstwo(int ileJednostek)
         {
-            var losujPorod = Helper.LosujLiczbe(0, 3);
-            var losujPlec = Helper.LosujLiczbe(0, 2);
-            if (losujPorod == 1)
+
+            if (CzyZyje)
             {
-                var plec = losujPlec == 0 ? Plec.Kobieta : Plec.Mezczyzna;
-                var nowaMrowka = new Mrowka(plec);
-                nowaMrowka.NadajImie(Helper.WylosujImie(plec));
+                var losujPorod = Helper.LosujLiczbe(0, 3);
+                var losujPlec = Helper.LosujLiczbe(0, 2);
+                if (losujPorod == 1)
+                {
+                    var plec = losujPlec == 0 ? Plec.Kobieta : Plec.Mezczyzna;
+                    var nowaMrowka = new Mrowka(plec);
+                    nowaMrowka.NadajImie(Helper.WylosujImie(plec));
+                    wyslijEventUrodziloSie(nowaMrowka);
+                }
             }
+            else
+            {
+                Helper.UplynalCzas -= PowijPotomstwo;
+            }
+
+
         }
 
         protected override void umieraj()

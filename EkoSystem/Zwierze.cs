@@ -21,6 +21,9 @@ namespace EkoSystem
             }
         }
 
+        protected virtual void PowijPotomstwo(int ileJednostek)
+        {
+        }
 
         public Zwierze(Gatunek gatunek, Plec plec)
         {
@@ -69,6 +72,18 @@ namespace EkoSystem
         protected virtual void umieraj()
         {
             _czyZyje = false;
+            if (ZwierzeUmarlo != null)
+            {
+                ZwierzeUmarlo(this);
+            }
+        }
+
+        protected void wyslijEventUrodziloSie(Zwierze zwierze)
+        {
+            if (ZwierzeUrodziloSie != null)
+            {
+                ZwierzeUrodziloSie(zwierze);
+            }
         }
 
         /// <summary>
@@ -84,5 +99,11 @@ namespace EkoSystem
         {
             return _gatunek.ToString() + " " + _imie + " ( " + _plec + ")";
         }
+
+        public delegate void ZwierzeUmarloEvent(Zwierze zwierzeKtoreUmarlo);
+        public event ZwierzeUmarloEvent ZwierzeUmarlo;
+
+        public delegate void ZwierzeUrodziloSieEvent(Zwierze zwierzeKtoreSieUrodzilo);
+        public event ZwierzeUrodziloSieEvent ZwierzeUrodziloSie;
     }
 }

@@ -35,14 +35,21 @@ namespace EkoSystem
         public void DodajZwierze(Zwierze zwierze)
         {
             _zwierzeta.Add(zwierze);
+            zwierze.ZwierzeUmarlo += zwierzeUmarlo;
         }
+
+
+        private void zwierzeUmarlo(Zwierze zwierzeKtoreUmarlo)
+        {
+            _zwierzeta.Remove(zwierzeKtoreUmarlo);
+        }
+
         #endregion
 
         public void DodajSurowiec(SurowiecNaturalny surowiec)
         {
             _surowceNaturalne.Add(surowiec);
         }
-
 
 
 
