@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace EkoSystem
 {
     class EkoSystem
@@ -16,8 +17,11 @@ namespace EkoSystem
         /// <summary>
         /// Lista Zwierząt;
         /// </summary>
-        private List<Zwierze> _zwierzeta;
+        private  List<Zwierze> _zwierzeta;
+
+        private List<Zwierze> _urodzoneZwierzeta;
         
+
         /// <summary>
         /// Konstruktor Domyślny;
         /// </summary>
@@ -25,7 +29,9 @@ namespace EkoSystem
         {
             _surowceNaturalne = new List<SurowiecNaturalny>();
             _zwierzeta = new List<Zwierze>();
+            _urodzoneZwierzeta = new List<Zwierze>(zwierzeUrodziloSie);
         }
+
 
         #region DodajZwierze
         /// <summary>
@@ -44,6 +50,10 @@ namespace EkoSystem
             _zwierzeta.Remove(zwierzeKtoreUmarlo);
         }
 
+        private void zwierzeUrodziloSie(Zwierze zwierzeKtoreUrodziloSie)
+        {
+            _zwierzeta.Add(zwierzeKtoreUrodziloSie);
+        }
         #endregion
 
         public void DodajSurowiec(SurowiecNaturalny surowiec)
@@ -51,8 +61,7 @@ namespace EkoSystem
             _surowceNaturalne.Add(surowiec);
         }
 
-
-
+        
 
 
         public override string ToString()
