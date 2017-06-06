@@ -56,8 +56,8 @@ namespace EkoSystem
         {
             if (_czyZyje)
             {
+                Console.WriteLine("[-] Zwierze {0} Umarło!", opisZwierzecia());
                 umieraj();
-                Console.WriteLine("Zwierze {0} Umarło!", opisZwierzecia());
                 return true;
             }
             //Nie można zabić martwej mrówki
@@ -80,6 +80,12 @@ namespace EkoSystem
 
         protected void wyslijEventUrodziloSie(Zwierze zwierze)
         {
+            /*
+             * [Jakub] brakowo nam podczas działania programu informacji o tym, że zwierzęta się rodziły
+             * teraz naprawiamy ten błąd
+             */
+            Console.WriteLine("[+] Zwierze {0} urodziło się!", zwierze.opisZwierzecia());
+
             if (ZwierzeUrodziloSie != null)
             {
                 ZwierzeUrodziloSie(zwierze);

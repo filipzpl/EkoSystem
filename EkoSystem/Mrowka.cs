@@ -28,6 +28,13 @@ namespace EkoSystem
         {
             _pozycjaHierarchiMrowek = HierarchiaMrowek.Krolowa;
 
+            /*
+             * [Jakub] z racji że na tę chwilę, tylko mrówki, które są królowymi potrafią rodzić
+             * potomstwo, to musimy wydluzyc jej czas zycia, aby nasz ekosystem rozwijał się trochę 
+             * dłużej niż kilka sekund
+             */
+            _pozostalyCzasZycia = 999999;
+
             Helper.UplynalCzas += PowijPotomstwo;
         }
 
