@@ -75,6 +75,7 @@ namespace EkoSystem
             zwierzeB.Usmierc();
 
             Console.WriteLine("Ilość Mrówek: {0} ", Mrowka.IloscStworzonychMrowek);
+            Console.WriteLine("Ilość Wiewiórek {0} ", Wiewiorka.IloscStworzonychWiewiorek);
             Console.WriteLine(ekoSystem);
             Console.ReadKey();
         }

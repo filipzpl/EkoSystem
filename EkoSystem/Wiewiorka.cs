@@ -15,5 +15,43 @@ namespace EkoSystem
         {
             IloscStworzonychWiewiorek++;
         }
+
+        public Wiewiorka() : this(Plec.Kobieta)
+        {
+            _pozostalyCzasZycia = 999999;
+            Helper.UplynalCzas += PowijPotomstwo;
+        }
+
+        protected override void PowijPotomstwo(int ileJednostek)
+        {
+
+            if (CzyZyje)
+            {
+                var losujPorod = Helper.LosujLiczbe(0, 3);
+                var losujPlec = Helper.LosujLiczbe(0, 2);
+                if (losujPorod == 1)
+                {
+                    var plec = losujPlec == 0 ? Plec.Kobieta : Plec.Mezczyzna;
+                    var nowaWiewiorka = new Mrowka(plec);
+                    nowaWiewiorka.NadajImie(Helper.WylosujImie(plec));
+                    wyslijEventUrodziloSie(nowaWiewiorka);
+                }
+            }
+            else
+            {
+                Helper.UplynalCzas -= PowijPotomstwo;
+            }
+        }
+
+        protected override void umieraj()
+        {
+            IloscStworzonychWiewiorek--;
+            base.umieraj();
+        }
+
+
+
+
+
     }
 }
