@@ -1,4 +1,4 @@
-﻿namespace EkoSystem
+﻿namespace Helpers.Enums
 {
     public enum Plec
     {

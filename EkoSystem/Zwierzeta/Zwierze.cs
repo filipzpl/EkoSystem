@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Helpers;
+using System;
 using System.Runtime.CompilerServices;
+using Helpers.Enums;
 
-namespace EkoSystem
+namespace EkoSystem.Zwierzeta
 {
     abstract class Zwierze
     {
@@ -12,6 +14,8 @@ namespace EkoSystem
         protected int _pozostalyCzasZycia;
 
         private bool _czyZyje;
+        private Gatunek mrowka;
+        private Plec plec;
 
         public bool CzyZyje
         {
@@ -34,6 +38,7 @@ namespace EkoSystem
             
             Helper.UplynalCzas += GdyUplynalCzas;
         }
+
         private void GdyUplynalCzas(int ileJednostek)
         {
             _pozostalyCzasZycia -= ileJednostek;
@@ -66,7 +71,8 @@ namespace EkoSystem
 
         protected virtual string opisZwierzecia()
         {
-            return GetType().ToString();
+            //return GetType().ToString();
+            return string.Format("{0} {1}", _gatunek, _imie);
         }
 
         protected virtual void umieraj()

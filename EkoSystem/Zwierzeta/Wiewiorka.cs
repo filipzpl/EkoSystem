@@ -5,8 +5,10 @@ using System.Runtime.Remoting.Channels;
 using System.Text;
 using System.Threading.Tasks;
 using EkoSystem.Interface;
+using Helpers;
+using Helpers.Enums;
 
-namespace EkoSystem
+namespace EkoSystem.Zwierzeta
 {
     class Wiewiorka : Zwierze, IIstotaZywa
     {
@@ -14,12 +16,12 @@ namespace EkoSystem
         public Wiewiorka(Plec plec) : base(Gatunek.Wiewiorka, plec)
         {
             IloscStworzonychWiewiorek++;
-        }
 
-        public Wiewiorka() : this(Plec.Kobieta)
-        {
-            _pozostalyCzasZycia = 999999;
-            Helper.UplynalCzas += PowijPotomstwo;
+            if (plec == Plec.Kobieta)
+            {
+                // _pozostalyCzasZycia = 999999;
+                Helper.UplynalCzas += PowijPotomstwo;
+            }
         }
 
         protected override void PowijPotomstwo(int ileJednostek)
@@ -32,7 +34,7 @@ namespace EkoSystem
                 if (losujPorod == 1)
                 {
                     var plec = losujPlec == 0 ? Plec.Kobieta : Plec.Mezczyzna;
-                    var nowaWiewiorka = new Mrowka(plec);
+                    var nowaWiewiorka = new Wiewiorka(plec);
                     nowaWiewiorka.NadajImie(Helper.WylosujImie(plec));
                     wyslijEventUrodziloSie(nowaWiewiorka);
                 }
@@ -48,7 +50,6 @@ namespace EkoSystem
             IloscStworzonychWiewiorek--;
             base.umieraj();
         }
-
 
 
 

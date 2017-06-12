@@ -1,4 +1,4 @@
-﻿namespace EkoSystem
+﻿namespace EkoSystem.Zwierzeta
 {
     enum Gatunek
     {

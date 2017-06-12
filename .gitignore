@@ -2,3 +2,5 @@
 /EkoSystem/bin
 /EkoSystem/obj
 /*.suo
+/Helpers/bin/Debug
+/Helpers/obj/Debug
